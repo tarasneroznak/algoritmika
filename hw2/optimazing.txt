@@ -1,0 +1,74 @@
+A.
+
+const  N = 4096;
+byte[,] image = new byte[N, N];
+public bool isDark() {
+    count = 0
+    for (int j = 0; j < N; ++j) {
+        for (int i = 0; i < N; ++i) {
+            if (image[i, j] >= 128) {
+                count += 1;
+            }
+        }
+    }
+    return count < N * N / 2;
+}
+
+Так як матриці зберігаються в памяті(кеш) послідовно по рядкам, то потрібно ітерувати не по колонка 'image[i, j]' а по рядкам 'image[j, i]'
+
+B.
+
+y = a[0]
+xi = 1
+for i = [1, n]
+   xi = x * xi
+   y = y + a[i] * xi 
+
+Можна використати метод Хорнера для обчислення полінома за - n
+
+fn(a, n)
+    y = a[0]
+    for i = [1, n]
+        y = y * x + a[i]
+
+
+С.
+
+Основна оптимізація це кешування розрахунку факторіалу
+Потрібно створити функція з мемонізацією, в цьому випадку mFactorial - фабрика з замиканням, яка повертає функуцію для розрахунку факторіалу або взяття з розрахованих
+
+function mFactorial() {
+    const cache = {};
+
+    const f = (n) => {
+        if (n == 0 || n == 1) return 1;
+        if (cache[n] > 0) return cache[n];
+        return cache[n] = f(n - 1) * n;
+    }
+
+    return f;
+}
+
+function sinx(N, terms, x = [], result = []) {
+    const factorial = mFactorial();
+
+    for (let i = 0; i < N; i++) {
+        let value = x[i];
+        let number = x[i] * x[i] * x[i];
+        let denomNumber = 3;
+        let denom = factorial(denomNumber);
+        let sign = -1;
+
+        for (let j = 1; j <= terms; j++) {
+            value = value * (sign * number / denom);
+            number *= x[i] * x[i];
+            denomNumber += 2;
+            denom = factorial(denomNumber);
+            sign = sign * -1;
+        }
+
+        result[i] = value;
+    }
+
+    return result
+}
