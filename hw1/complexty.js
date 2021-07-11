@@ -1,7 +1,7 @@
-const n = 120
+const n = 10
 const c = {}
 function db_call(n) {
-    c[n] = (c[n] || 0) + 1;
+    if (n === 'h') c[n] = (c[n] || 0) + 1;
 }
 
 // a
@@ -9,23 +9,17 @@ for (let i = n; i > 1; i /= 2) db_call('a')
 /*
 i = n -> n
 i = n/4 -> n/2
-i = n/4 -> n/4
 ... 
 i = 1 -> 1
 
-n + n/2 + n/4 + ... + 1 = n
+n + n/2 + n/4 + ... + 1 = log n
 */
 
 // b
 for (let i = 0; i * i < n; i++) db_call('b')
 /*
-i = 0 -> n
-i = 1 -> n - 1 
-i = 2 -> n - 4
-...
-i = n -> n - 2n
-
-n + n - 1 + n - 4 + n - 2n = n(n + 1) / 2 =? n^2
+цикл буде працювати поки i^2 < n або i < sqrt(n)
+-> sqrt(n)
 */
 
 // c
@@ -89,15 +83,19 @@ for (let i = 1; i <= n; i++) {
     }
 }
 /*
-i = 1 -> n - 1
-i = 2 -> n - 2
+outer
+=> n
+
+inner
+i = 1 -> n
+i = 2 -> n/2
+i = 3 -> n/3
 ...
 i = n -> 1
 
-n + n - 1 + n - 2 + ... + 1
-1 + 2 + 3 + n
+n + n/2 + n/3 + ... + 1 = log n 
 
-n(n + 1) / 2 = 1/2 * n^2 + 1/2 * n = n^2
+=> n log n
 */
 
 // h
@@ -111,13 +109,27 @@ compute(n)
 /*
         f(n) -> n
         /  \
-    f(n/2)  f(n/2) -> n^2
+    f(n/2)  f(n/2) -> n
     /    \     \    \
-f(n/4) f(n/4) f(n/4) f(n/4) -> n^4
+f(n/4) f(n/4) f(n/4) f(n/4) -> n
                             ....   
-                                -> n^log n
+                                -> n
 
-n + n^2 + n^4 + n^log n = n log n
+2 log n * n ??
+*/
+
+
+/*
+
+a. log n
+b. sqrt n
+c. n
+d. n^4
+e. n^3
+f. n log n
+g. n log n
+h. 2 log n * n
+
 */
 
 console.log(n, c);

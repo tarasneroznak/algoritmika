@@ -1,0 +1,29 @@
+Optimazing
+
++ | A
++ | B
+-? | C 
+
+Yandex
+https://contest.yandex.ru/contest/27472
+https://contest.yandex.ru/contest/27844/problems
+
++ | G.Наибольшее произведение двух чисел
++ | I.Сапер
++ | A.Двоичный поиск
++ | B.Приближенный двоичный поиск
+
+Codeforces
+https://codeforces.com/gym/102261
+
++ | A.Будильники
++ | F.Поиск ломающего коммита
+ 
+Hackerrank
+https://www.hackerrank.com/projector-algo-online-hw-2-xew
+
++ | 1. Raskin Bobbins
++ | 2. Garland
++ | 3. 1, 10, 100, 1000... 1
++ | 4. Auto Loan
++ | 5. Lvivstar
