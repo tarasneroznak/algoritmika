@@ -78,6 +78,7 @@ function isDark_completed(image, N) {
     for (let j = 0; j < N; ++j) {
         for (let i = 0; i < N; ++i) {
             count += (image[j][i] >> 7)
+            // оскільки для 0-127 8й біт це 0, а для 128-255 8й біт це 1
         }
     }
 

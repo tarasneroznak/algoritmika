@@ -11,6 +11,10 @@ function getRandomImage(length) {
     })
 }
 
+function getArray(length) {
+    return Array.from({ length }, () => 0)
+}
+
 function getRandomNumberArray(length, min = 0, max = 1000) {
     return Array.from({ length }, () => getRandomInt(min, max))
 }
@@ -30,6 +34,7 @@ function timer(log, callback) {
 }
 
 module.exports = {
+    getArray,
     getRandomInt,
     getRandomNumberArray,
     getRandomImage,

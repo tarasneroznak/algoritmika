@@ -1,0 +1,13 @@
+Theory
+
+- | A
+- | B
+
+Leetcode
++ | c) https://leetcode.com/problems/squares-of-a-sorted-array/
++ | d) https://leetcode.com/problems/sort-array-by-parity/
++ | e) https://leetcode.com/problems/design-twitter/       (implement heap)
+
+Yandex
++ | f) https://contest.yandex.ru/contest/27883/problems/A/ (implement merge sort)
++ | g) https://contest.yandex.ru/contest/27883/problems/B/ (implement quick sort)

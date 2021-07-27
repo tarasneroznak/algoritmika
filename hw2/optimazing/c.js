@@ -56,22 +56,49 @@ function sinx(N, terms, x = [], result = []) {
     return result
 }
 
+function sinx_best(N, terms, x = [], result = []) {
+    let denoms = [-(1 / 6)];
+    let sign = -1;
+    // кешуємо факторіали
+    for (let j = 1; j <= terms; j++) {
+        denoms[j] = sign * (denoms[j - 1] / (2 * j + 2) / (2 * j + 3));
+        sign = -sign;
+    }
+    console.log(denoms);
+    for (let i = 0; i < N; i++) {
+        let value = x[i];
+        let number = x[i] * x[i] * x[i];
+        let numberSquare = x[i] * x[i];
+        let denom = denoms[0];
+
+        for (let j = 1; j <= terms; j++) {
+            value += number * denom;
+            number = number * numberSquare
+            denom = denoms[j];
+        }
+
+        result[i] = value;
+    }
+
+    return result
+}
+
 const n = getRandomInt(1, 30);
-const t = getRandomInt(3, 30);
+const t = 7 //getRandomInt(3, 7);
 const x = getRandomNumberArray(n, 1, 300);
 
-for (let i = 0; i < 100; i++) {
+console.time('_sinx');
+let r1 = _sinx(n, t, x);
+console.log(r1);
+console.timeEnd('_sinx');
 
-    console.time('_sinx');
-    let r1 = _sinx(n, t, x);
-    console.timeEnd('_sinx');
+console.time('sinx');
+let r2 = sinx(n, t, x);
+console.log(r2);
+console.timeEnd('sinx');
 
-    console.time('sinx');
-    let r2 = sinx(n, t, x);
-    console.timeEnd('sinx');
+console.time('sinx_best');
+let r3 = sinx_best(n, t, x);
+console.log(r3);
+console.timeEnd('sinx_best');
 
-    // console.log([r1,r2]);
-
-    console.log('-----------');
-
-}
