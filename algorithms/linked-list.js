@@ -27,6 +27,7 @@ function linkedList() {
     function getFirst() {
         return (sentinel.next || {}).payload;
     }
+    
     function getLast() {
         let last = sentinel;
         while (last.next !== null) {

@@ -1,0 +1,9 @@
++ | 1. https://leetcode.com/problems/design-circular-deque/ (з використанням списку та масиву)
++ | 2. https://leetcode.com/problems/basic-calculator-ii/ (стек написати власноруч)
++ | 3. Реализовать malloc & free.
+
+https://contest.yandex.ru/contest/27663/problems/
+- | А
+- | B
+- | C 
+- | D

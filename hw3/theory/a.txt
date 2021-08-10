@@ -68,3 +68,6 @@ function quickSort_tp(A) {
 
    return qs(0, A.length - 1);
 }
+
+!!!
+рішення - використати InsertingSort
