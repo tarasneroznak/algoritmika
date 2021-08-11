@@ -3,7 +3,7 @@
 + | 3. Реализовать malloc & free.
 
 https://contest.yandex.ru/contest/27663/problems/
-- | А
-- | B
-- | C 
-- | D
++ | А
++ | B
++ | C 
++ | D
