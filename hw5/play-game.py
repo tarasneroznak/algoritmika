@@ -1,27 +1,17 @@
 n = int(input())
-m = list(map(int, input().split()))
-e = list(map(int, input().split()))
+m = sorted(list(map(int, input().split())))
+e = sorted(list(map(int, input().split())), reverse=True)
 
-s = 0
+k = [None] * n
 
-def max_saved_units(indexes):
-    s = 0
+while(m):
+    s = m.pop()
+
     for i in range(n):
-        c = indexes[i] - 1
-        if (m[c] > e[i]):
-            s += m[c]
+        t = e[i]
 
-    return s
+        if (s > t and k[i] == None):
+            k[i] = s
+            break
 
-
-def gen_swap(n, p=[], sum=0):
-    if (len(p) == n):
-        return max(sum, max_saved_units(p))
-
-    for i in range(1, n+1):
-        if (i not in p):
-           sum = gen_swap(n, p + [i], sum)
-
-    return sum
-
-print(gen_swap(n))
+print(sum(filter(bool, k)))
